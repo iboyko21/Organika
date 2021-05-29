@@ -1,0 +1,14 @@
+.product {
+    display: inline-block;
+    border: 1px solid lightgray;
+    width:280px;
+    height: 330px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .product {
+        width: 100%;
+    }
+}
