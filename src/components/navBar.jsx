@@ -11,7 +11,7 @@ class NavBar extends Component {
       >
         <div className="container-fluid">
           <a className="navbar-brand" href="/#">
-            Navbar
+            OrganiKa
           </a>
           <button
             className="navbar-toggler"

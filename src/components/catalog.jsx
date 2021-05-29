@@ -1,22 +1,32 @@
 import React, { Component } from "react";
+
 import "./catalog.css";
 import Product from "./product";
+import ProductService from "./../services/productService";
 
 class Catalog extends Component {
-  state = {};
+  state = {
+    products: [],
+  };
+
   render() {
     return (
       <div className="catalog-page">
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
+        {this.state.products.map((prod) => (
+          <Product key={prod.id} data={prod}></Product>
+        ))}
       </div>
     );
+  }
+
+  // when the component is mounted (rendered on screen)
+  componentDidMount() {
+    // good place to load data (from server)
+    let service = new ProductService();
+    let data = service.getCatalog();
+
+    // put data on state
+    this.setState({ products: data });
   }
 }
 

@@ -8,13 +8,16 @@ class Product extends Component {
     return (
       <React.Fragment>
         <div className="product">
-          <img src="https://picsum.photos/250/200" alt="product"></img>
+          <img
+            src={"/imgs/products/" + this.props.data.image}
+            alt="product here"
+          ></img>
 
-          <h5>Product Title</h5>
+          <h4>{this.props.data.title}</h4>
 
           <div>
-            <label>Price: $100.00</label>
-            <label>Total: $200.00</label>
+            <label>Price: ${this.props.data.price.toFixed(2)}</label>
+            <label>Total: ${this.props.data.price.toFixed(2)}</label>
           </div>
 
           <QuantityPicker></QuantityPicker>
