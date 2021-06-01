@@ -7,7 +7,7 @@ class Footer extends Component {
     return (
       <div className="footer-page">
         <label>
-          2021 All rights reserved. <b>Igor Boyko.</b>
+        <b>Organika</b> © 2021 All rights reserved
         </label>
       </div>
     );

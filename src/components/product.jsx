@@ -19,12 +19,12 @@ class Product extends Component {
           </div>
 
           
-            <label>Total: ${this.props.data.price.toFixed(2)}</label>
+            <label className="total"><b>Total:</b> ${this.props.data.price.toFixed(2)}</label>
           
 
           <QuantityPicker></QuantityPicker>
 
-          <button className="btn btn-sm btn-info">Add</button>
+          <button className="btn btn-sm btn-info">Add To Cart</button>
         </div>
       </React.Fragment>
     );
