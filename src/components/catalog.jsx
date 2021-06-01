@@ -31,15 +31,3 @@ class Catalog extends Component {
 }
 
 export default Catalog;
-
-/* 
-
-Min info for the product cmp:
-- image
-- title
-- price
-- product ID
-- minimum to order
-- total $
-
-*/

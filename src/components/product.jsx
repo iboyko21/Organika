@@ -13,12 +13,14 @@ class Product extends Component {
             alt="product here"
           ></img>
 
+          <div className="title-container">
           <h4>{this.props.data.title}</h4>
-
-          <div>
-            <label>Price: ${this.props.data.price.toFixed(2)}</label>
-            <label>Total: ${this.props.data.price.toFixed(2)}</label>
+          <label className="price">${this.props.data.price.toFixed(2)}</label>
           </div>
+
+          
+            <label>Total: ${this.props.data.price.toFixed(2)}</label>
+          
 
           <QuantityPicker></QuantityPicker>
 
