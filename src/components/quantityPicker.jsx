@@ -4,7 +4,7 @@ import "./footer.css";
 class QuantityPicker extends Component {
   state = {
     name: "Igor Boyko",
-    quantity: 1,
+    quantity: 0,
   };
   render() {
     return (
@@ -27,13 +27,18 @@ class QuantityPicker extends Component {
   }
 
   increaseQuantity = () => {
-    this.setState({ quantity: this.state.quantity + 1 });
+    let q = this.state.quantity + 1;
+    this.setState({ quantity: q });
     // valid way of changing the state
+
+    this.props.onQuantityChange(q);
   };
 
   decreaseQuantity = () => {
     if (this.state.quantity > 1) {
-      this.setState({ quantity: this.state.quantity - 1 });
+      let qnty = this.state.quantity - 1;
+      this.setState({ quantity: qnty });
+      this.props.onQuantityChange(qnty);
     }
   };
 }
