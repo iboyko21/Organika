@@ -10,9 +10,9 @@ function App() {
   return (
     <div className="App">
       <NavBar></NavBar>
-      <h1>Online Catalogue</h1>
 
       <Catalog></Catalog>
+      <hr></hr>
 
       <Footer></Footer>
     </div>
