@@ -1,3 +1,6 @@
 .footer-page {
-    margin-top: 2rem;
+    position: fixed;
+    Width: 100%;
+    bottom: 0;
+    background-color:rgb(103, 221, 132);
 }

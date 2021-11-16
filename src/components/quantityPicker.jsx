@@ -4,7 +4,7 @@ import "./footer.css";
 class QuantityPicker extends Component {
   state = {
     name: "Igor Boyko",
-    quantity: 0,
+    quantity: 1,
   };
   render() {
     return (

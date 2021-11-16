@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import "./navBar.css";
 
 class NavBar extends Component {
@@ -7,12 +9,12 @@ class NavBar extends Component {
     return (
       <nav
         className="navbar navbar-expand-lg navbar-light"
-        style={{ backgroundColor: "#e3f2fd" }}
+        style={{ backgroundColor: "rgb(103, 221, 132)" }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="/#">
+          <Link className="navbar-brand" to="/#">
             OrganikA
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,20 +26,37 @@ class NavBar extends Component {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/#">
+              <li className="nav-item active">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="/#">
-                  Catalog Link
-                </a>
+                <Link className="nav-link" to="/catalog">
+                  Catalog
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link className="nav-link" to="/about">
+                  About
+                </Link>
               </li>
             </ul>
+
+            <div className="d-flex">
+              <Link className="btn btn-outline-light" to="/cart">
+                <i className="fa fa-shopping-cart mr-2"></i>
+                &nbsp; View Cart
+                <span className="badge badge-secondary">
+                  {this.props.cartCount}
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
@@ -45,4 +64,11 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+// return an object mapping the state to props
+const mapStateToProps = (state) => {
+  return {
+    cartCount: state.length, // <-- will put the array in this.props.cartCount
+  };
+};
+
+export default connect(mapStateToProps, null)(NavBar);

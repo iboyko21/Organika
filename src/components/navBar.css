@@ -1,5 +1,10 @@
+.navbar-nav {
+    margin-right: auto;
+}
 
-
-.navBar-page {
-    border: 1px solid red;
+.navbar-brand {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    margin-right: 100px;
+    margin-left: 25px;
 }

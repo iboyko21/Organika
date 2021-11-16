@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import QuantityPicker from "./quantityPicker";
+import { connect } from "react-redux";
+import { addToCart } from "../store/actions";
+
 import "./product.css";
 
 class Product extends Component {
   state = {
-    quantity: 0,
+    quantity: 1,
   };
 
   render() {
@@ -29,7 +32,13 @@ class Product extends Component {
             onQuantityChange={this.handleQuantityChange}
           ></QuantityPicker>
 
-          <button className="btn btn-sm btn-info">Add To Cart</button>
+          <button
+            onClick={this.handleAddToCart}
+            className="btn btn-sm btn-info"
+          >
+            <i className="fa fa-cart-plus" aria-hidden="true"></i>
+            &nbsp; Add
+          </button>
         </div>
       </React.Fragment>
     );
@@ -43,6 +52,23 @@ class Product extends Component {
   handleQuantityChange = (qnty) => {
     this.setState({ quantity: qnty });
   };
+
+  handleAddToCart = () => {
+    console.log("Dispatching action");
+    // dispatch the addToCart action
+    // creat a copy of data
+    // add the quantity
+    // send the copy as payload
+    let copy = { ...this.props.data };
+    copy.quantity = this.state.quantity;
+    this.props.addToCart(copy);
+  };
 }
 
-export default Product;
+/**
+ * Connect the component to the store (to read/dispatch actions)
+ * receives 2 params:
+ * 1 - A function that maps what you want to read
+ * 2 - An object with the actions you want to dispatch
+ */
+export default connect(null, { addToCart })(Product);

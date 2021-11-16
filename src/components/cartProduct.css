@@ -1,0 +1,26 @@
+.cart-product {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    padding: 10px 20px;
+}
+
+.cart-product img {
+    flex: 2;
+    max-height: 150px;
+    max-width: 150px;
+    border-radius: 5px;
+}
+
+.cart-product h6 {
+    flex: 4;
+}
+
+.cart-product label {
+    flex: 2;
+}
+
+.cart-product button {
+    flex: 1;
+    height: fit-content;
+}

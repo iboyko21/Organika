@@ -74,7 +74,24 @@ var data = [
   },
 ];
 
-class ProductService {
+
+/**
+ * Server endpoint and functionality
+ * 
+ * GET
+ * /api/products  => get everyone's products
+ * /api/products/<yourName>  -> get yours products
+ * 
+ * POST
+ * /api/products => save products onto the DB
+ * 
+ * DELETE
+ * /api/products/clear/<yourName> => delete your prods from DB
+ */
+
+
+
+ class ProductService {
   getCatalog() {
     // connect to a server
     // read the catalog from there
@@ -88,3 +105,40 @@ class ProductService {
 }
 
 export default ProductService;
+
+
+
+/** 
+import axios from 'axios';
+
+
+class ProductService {
+  serverUrl = "https://fsdiapi.azurewebsites.net";
+
+  async getCatalog() {
+    // connect to a server
+    // read the catalog from there
+    let response = await axios.get(this.serverUrl + "/api/products/IgorBoyko");
+    return response.data;
+  }
+
+  async seedData() {
+    // send data from the array on the top to the server
+    for(let i=0; i< data.length; i++){
+      let prod = data[i];
+      prod.name = "IgorBoyko";
+    await axios.post(this.serverUrl + "/api/products", prod);
+    }
+  }
+
+  async deleteCatalog() {
+    // connect to a server
+    // remove the catalog from there
+    let response = await axios.delete(this.serverUrl + "/api/products/clear/IgorBoyko");
+    return response.data;
+  }
+
+}
+
+export default ProductService;
+*/

@@ -15,15 +15,22 @@ class Catalog extends Component {
     let prodsToDisplay = this.state.products;
 
     // filter the elements inside the prodsToDisplay
-    if(this.state.selectedCategory) {
-      prodsToDisplay = prodsToDisplay.filter(prod => prod.category === this.state.selectedCategory);
+    if (this.state.selectedCategory) {
+      prodsToDisplay = prodsToDisplay.filter(
+        (prod) => prod.category === this.state.selectedCategory
+      );
     }
 
     return (
       <div className="catalog-page">
         <div className="categories">
-          <button onClick={() => this.selectCategory("")} className="btn btn-secondary">Show All</button>
-          
+          <button
+            onClick={() => this.selectCategory("")}
+            className="btn btn-secondary"
+          >
+            Show All
+          </button>
+
           {this.state.categories.map((cat) => (
             <button
               onClick={() => this.selectCategory(cat)}
@@ -46,14 +53,14 @@ class Catalog extends Component {
 
   selectCategory = (cat) => {
     console.log("User selcted:", cat);
-    this.setState({ selectedCategory: cat});
+    this.setState({ selectedCategory: cat });
   };
 
   // when the component is mounted (rendered on screen)
-  componentDidMount() {
+  async componentDidMount() {
     // good place to load data (from server)
     let service = new ProductService();
-    let data = service.getCatalog();
+    let data = await service.getCatalog();
 
     // find the unique categories
     // creat loop to travel array and look for categories
